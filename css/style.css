@@ -5,9 +5,6 @@
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
 body {
-  display: flex;
-  justify-content: center;
-  min-height: 100vh;
   background: url(../img/background4.jpg);
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -53,4 +50,13 @@ nav a.nav-link:hover .hover-span {
   width: 180px;
   left: 0;
   top: 1;
+}
+img{
+
+  width: 50px;
+}
+footer{
+  align-items: center;
+  padding: 1em;
+  margin-top:auto;
 }

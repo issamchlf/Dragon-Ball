@@ -1,40 +1,44 @@
-const requestURL = 'https://dragonball-api.com/api/characters?';
-async function fetchItemJson(){
-    try{
-        const response = await fetch("https://dragonball-api.com/api/characters?page=1");
-        if (!response.ok) {
-            throw new Error(`Error en la peticion ${response.status}`);
-        }
-        return await response.json();
-    }
-    catch (error){
-        console.error(`Error al obtener las burgers de la API : `,error);
-        return null;
-    }
-}
-function createItemsCard ({id, name, ki, maxKi, description}){
-    return `<div class="card-group">
-                <div class="card" id='allCards'>
-                    <img src="${image}" class="card-img-top" alt="" id='allCards'>
-                    <div class="card-body" id='allCards'>
-                        <h5 class="card-title" id='allCards'>${id} - ${name}</h5>
-                        <h6 class="card-text" id='allCards'>€ ${price}</h6>
-                        <p class="card-text"><small class="text-muted" id='descriptionCards'>${description}</small></p>
-                    </div>
-                </div>
-            </div>
-    `;
-}
-async function displayItems() {
-    const itemSection = document.getElementById('itemSection');
-    const itemsData = await fetchItemJson();
+const requestURL = "https://dragonball-api.com/api/characters?page=1&limit=58"
 
-    if (itemsData && itemsData.items){
-        const itemCards = itemsData.items.map(createitemCard).join('');
-        itemSection.innerHTML = itemCards;
-    }
-    else{
-        itemSection.innerHTML = `<p>No se ha podido cargar el Json de las burgers</p>`
-    }
+async function fetchCharacterJson(){
+    try{
+      const response = await fetch(requestURL);
+      if (!response.ok) {
+          throw new Error(`Error en la peticion ${response.status}`);
+      }
+      return await response.json();
+  }
+  catch (error){
+      console.error(`Error al obtener los personajes de la API : `,error);
+      return null;
+  }
 }
-displayItems();
+
+function createCharacterCard ({id, name, ki, maxKi, race, gender, description, image}){
+  return `<div class="card" >
+            <img class="card-img-top" src="${image}" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">${name}</h5>
+                <p class="card-text">${race} - ${gender}</p>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Ki: ${ki}</li>
+                <li class="list-group-item">Maximum Ki: ${maxKi}</li>
+            </ul>
+        </div>
+  `;
+}
+
+async function displayCharacters() {
+  const characterSection = document.getElementById('charactersection');
+  const charactersData = await fetchCharacterJson();
+
+  if (charactersData && charactersData.items){
+      const characterCards = charactersData.items.map(createCharacterCard).join('');
+      characterSection.innerHTML = characterCards;
+  }
+  else{
+    characterSection.innerHTML = `<p>No se ha podido cargar el Json de los characters</p>`
+  }
+}
+displayCharacters();
