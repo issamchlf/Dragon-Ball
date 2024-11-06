@@ -24,6 +24,7 @@ function createCharacterCard ({id, name, ki, maxKi, race, gender, description, i
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">Ki: ${ki}</li>
                 <li class="list-group-item">Maximum Ki: ${maxKi}</li>
+
             </ul>
         </div>
   `;
@@ -38,7 +39,7 @@ async function displayCharacters() {
       characterSection.innerHTML = characterCards;
   }
   else{
-    characterSection.innerHTML = `<p>No se ha podido cargar el Json de los characters</p>`
+    characterSection.innerHTML = `<p>No se ha podido cargar el Json de los personajes</p>`
   }
 }
 displayCharacters();
