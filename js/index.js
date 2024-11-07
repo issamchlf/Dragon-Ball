@@ -1,20 +1,19 @@
-const requestURL = "https://dragonball-api.com/api/characters?page=1&limit=58"
+const requestURL = "https://dragonball-api.com/api/characters?page=1&limit=58";
 
-async function fetchCharacterJson(){
-    try{
-      const response = await fetch(requestURL);
-      if (!response.ok) {
-          throw new Error(`Error en la peticion ${response.status}`);
-      }
-      return await response.json();
-  }
-  catch (error){
-      console.error(`Error al obtener los personajes de la API : `,error);
-      return null;
+async function fetchCharacterJson() {
+  try {
+    const response = await fetch(requestURL);
+    if (!response.ok) {
+      throw new Error(`Error en la peticion ${response.status}`);
+    }
+    return await response.json();
+  } catch (error) {
+    console.error(`Error al obtener los personajes de la API : `, error);
+    return null;
   }
 }
 
-function createCharacterCard ({ name, ki, maxKi, race, gender,image}){
+function createCharacterCard({ name, ki, maxKi, race, gender, image }) {
   return `<div class="card allCards" style="background-color: #000;">
             <img class="card-img-top" src="${image}" alt="Card image cap">
             <div class="card-body">
@@ -30,15 +29,16 @@ function createCharacterCard ({ name, ki, maxKi, race, gender,image}){
 }
 
 async function displayCharacters() {
-  const characterSection = document.getElementById('charactersection');
+  const characterSection = document.getElementById("charactersection");
   const charactersData = await fetchCharacterJson();
 
-  if (charactersData && charactersData.items){
-      const characterCards = charactersData.items.map(createCharacterCard).join('');
-      characterSection.innerHTML = characterCards;
-  }
-  else{
-    characterSection.innerHTML = `<p>No se ha podido cargar el Json de los personajes</p>`
+  if (charactersData && charactersData.items) {
+    const characterCards = charactersData.items
+      .map(createCharacterCard)
+      .join("");
+    characterSection.innerHTML = characterCards;
+  } else {
+    characterSection.innerHTML = `<p>No se ha podido cargar el Json de los personajes</p>`;
   }
 }
 displayCharacters();

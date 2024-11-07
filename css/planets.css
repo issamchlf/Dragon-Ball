@@ -1,0 +1,104 @@
+@import url("./header.css");
+body {
+  background: url(../img/background4.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+footer {
+  text-align: center;
+  background-color: rgb(0, 0, 0) !important;
+  height: 18 0px;
+  box-shadow: 0 0px 20px rgb(238, 95, 0);
+}
+table {
+  margin: 0 auto;
+  padding: 20px;
+}
+
+table img {
+  width: 60px;
+  padding: 10px;
+}
+.textColor {
+  color: white;
+}
+main {
+    margin-top: 110px;
+  }
+  .card-container {
+    background-color: black;
+    gap: 20px;
+    padding: 20px;
+  }
+  .allCards {
+    max-width: 320px;
+    max-height: auto;
+    margin: auto;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 0.5s forwards ease;
+    align-items: center;
+  }
+  .card:hover {
+    transform: scale(0.5s);
+    box-shadow: 0 0px 20px rgb(238, 95, 0);
+  }
+  
+  .card img {
+    background-color: rgba(255, 255, 255, 0);
+    width: 30%;
+    transition: transform 0.8s ease;
+  }
+  
+  .card:hover img {
+    background-color: rgba(247, 206, 0, 0);
+    transform: scale(1.1);
+  }
+  .list-group {
+    width: 320px;
+    text-align: center;
+  }
+  .card-body {
+    background-color: rgb(255, 255, 255);
+    padding: 16px;
+    transition: transform 0.3s ease;
+    border-radius: 10px;
+  }
+  .card:hover .card-body {
+    background-color: rgb(238, 95, 0);
+    transform: translateY(-10px);
+    border-radius: 10px;
+  }
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .card-img-top {
+    width: auto;
+    height: 300px;
+    object-fit: contain;
+    margin: 0 auto;
+  }
+  .displayCards {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .allCards {
+    width: 350px;
+    height: 250px;
+    margin: 60px;
+  }
+  .list-group-item {
+    background-color: black !important;
+    color: rgb(255, 255, 255) !important;
+    box-shadow: 0 0px 8px rgb(255, 255, 255) !important;
+    margin: 5px;
+  }
