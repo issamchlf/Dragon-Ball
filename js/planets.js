@@ -1,4 +1,4 @@
-const requestURL = "https://dragonball-api.com/api/planets?limit=58"
+const requestURL = "https://dragonball-api.com/api/planets?limit=58";
 
 async function fetchPlanetsJson() {
     try {
@@ -8,37 +8,32 @@ async function fetchPlanetsJson() {
       }
       return await response.json();
     } catch (error) {
-      console.error(`Error al obtener los planets de la API : `, error);
+      console.error(`Error al obtener los planets de la API: `, error);
       return null;
     }
-  }
-  
-  function createPlanetCard({ id, name, description, image }) {
+}
+
+function createPlanetCard({ id, name, description, image, }) {
     return `<div class="card allCards" style="background-color: #000;">
-              <img class="card-img-top" src="${image}" alt="Card image cap">
+              <img class="card-img-top" src="${image}" alt="${name}">
               <div class="card-body">
-                  <h5 class="card-title">${name}</h5>
-                  <p class="card-text">${race} - ${gender}</p>
+                  <h4 class="card-title">${name}</h4>
               </div>
-              <ul class="list-group list-group-flush" >
-                  <li class="list-group-item"> ${description}</li>
-                  <li class="list-group-item">Maximum Ki: ${maxKi}</li>
+              <ul class="list-group list-group-flush">
+                  <li class="list-group-item descreption">${description}</li>
               </ul>
-            </div>
-    `;
-  }
-  
-  async function displayplanets() {
+            </div>`;
+}
+
+async function displayPlanets() {
     const planetSection = document.getElementById("planetsection");
     const planetData = await fetchPlanetsJson();
-  
+
     if (planetData && planetData.items) {
-      const planetCards = planetData.items
-        .map(createPlanetCard)
-        .join("");
-      planetSection.innerHTML = planetCards;
+        const planetCards = planetData.items.map(createPlanetCard).join("");
+        planetSection.innerHTML = planetCards;
     } else {
-      planetSection.innerHTML = `<p>No se ha podido cargar el Json de los planets</p>`;
+        planetSection.innerHTML = `<p>No se ha podido cargar el Json de los personajes</p>`;
     }
-  }
-  displayplanets();
+}
+displayPlanets();
