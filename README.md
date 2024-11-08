@@ -1,6 +1,6 @@
 # Dragon Ball Planets 🌌
 
-A simple web application showcasing planets from the Dragon Ball universe, using data from an API. The app provides images and details for each planet, allowing fans to explore the Dragon Ball world in an interactive and visually appealing way.
+A simple web application showcasing personajes y planets from the Dragon Ball universe, using data from an API. The app provides images and details for each personajes y planet, allowing fans to explore the Dragon Ball world in an interactive and visually appealing way.
 
 ## SCREENSHOT
 ![Dragon Ball Planets](./img/Captura%20de%20pantalla%202024-11-07%20204136.png)
@@ -10,10 +10,10 @@ A simple web application showcasing planets from the Dragon Ball universe, using
 >You can access to the pages using the buttons in the header.
 ## Features
 
-- Displays a collection of Dragon Ball planets with images, descriptions, and other details.
+- Displays a collection of Dragon Ball personajes and planets with images, descriptions, and other details.
 - Smooth scroll to footer contact links from the navigation bar.
 - Responsive and styled using Bootstrap for a modern look.
-- Animation effects when hovering over planet cards.
+- Animation effects when hovering over personajes and planets cards.
   
 ## Technologies
 
